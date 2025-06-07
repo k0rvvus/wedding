@@ -159,4 +159,34 @@
       </div>
     </div>
   </div>
+<script>
+  // Открыть карту
+  document.getElementById("Button").addEventListener("click", () => {
+    window.open("https://2gis.kz/almaty/firm/9429940001708119", "_blank");
+  });
+
+  // WhatsApp: +7 707 535 5570
+  document.getElementById("Button_1").addEventListener("click", () => {
+    window.open("https://wa.me/+77075355570", "_blank");
+  });
+
+  // WhatsApp: +7 747 493 1269
+  document.getElementById("Button_2").addEventListener("click", () => {
+    window.open("https://wa.me/+77474931269", "_blank");
+  });
+
+  // Отправка формы RSVP
+  document.getElementById("Button_0").addEventListener("click", function () {
+    const name = document.querySelector("#Input .text").innerText.trim();
+    const meat = document.querySelector("#Input_0 .text").innerText.trim();
+    const alcohol = document.querySelector("#Input_1 .text").innerText.trim();
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbze48uVP9YiMxRXI9EZhggWbehF9oEf_UKk-L7YmiRL7wPaMsLfoNVeLgVgohpwYJYo4w/exec";
+    const url = `${scriptURL}?callback=handleResponse&name=${encodeURIComponent(name)}&meat=${encodeURIComponent(meat)}&alcohol=${encodeURIComponent(alcohol)}`;
+
+    fetch(url)
+      .then(() => alert("Спасибо! RSVP отправлено."))
+      .catch(() => alert("Произошла ошибка при отправке."));
+  });
+</script>
 </body></html>
